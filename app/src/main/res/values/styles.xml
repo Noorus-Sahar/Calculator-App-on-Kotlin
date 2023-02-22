@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="buttonrow">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+    <style name="buttonnumber">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:backgroundTint">@color/almostblack</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:onClick">numberAction</item>
+    </style>
+    <style name="buttonoperator">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:backgroundTint">@color/almostblack</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:onClick">operatorAction</item>
+    </style>
+    <style name="buttonac">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:backgroundTint">@color/almostblack</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:onClick">allclearAction</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="buttondel">
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:backgroundTint">@color/almostblack</item>
+    <item name="android:textSize">25sp</item>
+    <item name="android:onClick">clearAction</item>
+    <item name="android:textColor">@color/red</item>
+    </style>
+</resources>
