@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-
+    app:layout_constraintVertical_bias="1.0"
     >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="2"
-    android:padding="20dp"
-
-    >
-    <TextView
-        android:id="@+id/workingstv"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:lines="2"
-        android:maxLines="2"
-        android:textColor="@color/white"
-        android:textAlignment="textEnd"
-        android:textSize="40sp"
-        android:backgroundTint="@color/almostblack"
-        app:layout_constraintBottom_toBottomOf="@+id/ResultsTV"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/workingstv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/almostblack"
+            android:lines="2"
+            android:maxLines="2"
+            android:text=""
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ResultsTV"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
     <TextView
         android:id="@+id/ResultsTV"
         android:layout_width="match_parent"
@@ -45,14 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintVertical_bias="1.0">
+    </androidx.constraintlayout.widget.ConstraintLayout>
         <TableRow
             android:id="@+id/TableRow01"
             android:layout_width="match_parent"
@@ -60,20 +52,17 @@
             android:layout_weight="1">
             <Button
                 style="@style/buttonac"
-                android:text="AC"
+                android:text="@string/AC"
+                android:layout_weight="2"
 
                 />
             <Button
                 style="@style/buttondel"
-                android:text="DEL"
-                />
-            <Button
-                style="@style/buttonnumber"
-                android:text=""
+                android:text="@string/del"
                 />
             <Button
                 style="@style/buttonoperator"
-                android:text="/"
+                android:text="@string/divide"
                 />
         </TableRow>
         <TableRow
@@ -83,19 +72,19 @@
             android:layout_weight="1">
             <Button
                 style="@style/buttonnumber"
-                android:text="7"
+                android:text="@string/seven"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="8"
+                android:text="@string/eight"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="9"
+                android:text="@string/nine"
                 />
             <Button
                 style="@style/buttonoperator"
-                android:text="x"
+                android:text="@string/multiply"
                 />
         </TableRow>
         <TableRow
@@ -105,19 +94,19 @@
             android:layout_weight="1">
             <Button
                 style="@style/buttonnumber"
-                android:text="4"
+                android:text="@string/four"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="5"
+                android:text="@string/five"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="6"
+                android:text="@string/six"
                 />
             <Button
                 style="@style/buttonoperator"
-                android:text="-"
+                android:text="@string/subtract"
                 />
         </TableRow>
         <TableRow
@@ -127,19 +116,19 @@
             android:layout_weight="1">
             <Button
                 style="@style/buttonnumber"
-                android:text="1"
+                android:text="@string/one"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="2"
+                android:text="@string/two"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="3"
+                android:text="@string/three"
                 />
             <Button
                 style="@style/buttonoperator"
-                android:text="+"
+                android:text="@string/add"
                 />
         </TableRow>
         <TableRow
@@ -149,19 +138,17 @@
             android:layout_weight="1">
             <Button
                 style="@style/buttonnumber"
-                android:text="."
+                android:text="@string/decimal"
                 />
             <Button
                 style="@style/buttonnumber"
-                android:text="0"
+                android:text="@string/zero"
                 />
             <Button
-                android:text="="
-                android:layout_weight="1"
-                android:background="@color/green"
-                android:textSize="40sp"
+                style="@style/buttonequal"
+                android:text="@string/equals"
+                android:layout_weight="2"
                 android:onClick="equalsAction"
                 />
         </TableRow>
     </TableLayout>
-</LinearLayout>

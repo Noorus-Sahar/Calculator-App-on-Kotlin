@@ -9,8 +9,8 @@ import android.widget.TextView
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var workingstv :TextView
-    lateinit var resultstv :TextView
+    lateinit var workingview :TextView
+    lateinit var resultview :TextView
 
     private var canaddoperation  = false
     private var candot  = true
@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        workingstv=findViewById(R.id.workingstv)
-        resultstv=findViewById(R.id.ResultsTV)
+        workingview=findViewById(R.id.workingstv)
+        resultview=findViewById(R.id.ResultsTV)
 
     }
     fun numberAction(view: View){
@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
             {
                 if(candot)
                 {
-                    workingstv.append(view.text)
+                    workingview.append(view.text)
                 }
                 candot=false
 
             }
             else
             {
-                workingstv.append(view.text)
+                workingview.append(view.text)
             }
 
             canaddoperation=true
@@ -45,40 +45,40 @@ class MainActivity : AppCompatActivity() {
     fun operatorAction(view: View){
         if (view is Button && canaddoperation)
         {
-            workingstv.append(view.text)
+            workingview.append(view.text)
             canaddoperation=false
             candot  = true
         }
     }
     fun allclearAction(view: View){
-        workingstv.text=""
-        resultstv.text=""
+        workingview.text=""
+        resultview.text=""
     }
     fun clearAction(view: View){
-        val length=workingstv.length()
+        val length=workingview.length()
         if (length>0)
         {
-            workingstv.text=workingstv.text.subSequence(0,length-1)
+            workingview.text=workingview.text.subSequence(0,length-1)
         }
     }
+
     fun equalsAction(view: View){
-        resultstv.text=calculateresults()
+        resultview.text=calculateresults()
     }
-    private fun calculateresults(): String
+    public fun calculateresults(): String
     {
         val digitsoperator = digitsoperator()
         if(digitsoperator.isEmpty())
         {
             return ""
         }
-        val timesDivision = timesDivisionCalculate(digitsoperator)
-        if(timesDivision.isEmpty()) {
+        val multiplyDivision = multiplyDivisionCalculate(digitsoperator)
+        if(multiplyDivision.isEmpty()) {
             return ""
         }
-        val result =caladdsubresult(timesDivision)
+        val result =caladdsubresult(multiplyDivision)
         return result.toString()
     }
-
     private fun caladdsubresult(passedList: MutableList<Any>): Float
     {
         var result = passedList[0] as Float
@@ -100,17 +100,16 @@ class MainActivity : AppCompatActivity() {
         }
         return result
     }
-
-    private fun timesDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
+    private fun multiplyDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
         var list =passedList
         while (list.contains('x') || list.contains('/'))
         {
-            list = caltimesDiv(list)
+            list = calmulDiv(list)
         }
         return list
     }
 
-    private fun caltimesDiv(passedList: MutableList<Any>): MutableList<Any> {
+    private fun calmulDiv(passedList: MutableList<Any>): MutableList<Any> {
         val newlist = mutableListOf<Any>()
         var restartindex=passedList.size
         for(i in passedList.indices)
@@ -149,7 +148,7 @@ class MainActivity : AppCompatActivity() {
     {
         val list = mutableListOf<Any>()
         var currentdigit =""
-        for(charachter in workingstv.text)
+        for(charachter in workingview.text)
         {
             if(charachter.isDigit() || charachter=='.')
             {
@@ -168,4 +167,6 @@ class MainActivity : AppCompatActivity() {
         }
         return list
     }
-    }
+
+
+}
